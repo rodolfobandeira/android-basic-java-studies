@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/activity_form_student_name"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:singleLine="true"
-        android:hint="Name" />
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/activity_form_student_phone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:singleLine="true"
-        android:hint="Phone" />
+        <EditText
+            android:id="@+id/activity_form_student_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Name"
+            android:singleLine="true" />
 
-    <EditText
-        android:id="@+id/activity_form_student_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:singleLine="true"
-        android:hint="Email" />
+        <EditText
+            android:id="@+id/activity_form_student_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Phone"
+            android:singleLine="true" />
 
-    <Button
-        android:id="@+id/activity_form_student_save_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Save"
-        android:layout_margin="8dp" />
+        <EditText
+            android:id="@+id/activity_form_student_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Email"
+            android:singleLine="true" />
 
-</LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
