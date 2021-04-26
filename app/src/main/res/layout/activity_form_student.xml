@@ -14,24 +14,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="Name"
-            android:singleLine="true" />
+            android:hint="@string/name"
+            android:singleLine="true"
+            android:inputType="textCapWords"
+            android:autofillHints="@string/name" />
 
         <EditText
             android:id="@+id/activity_form_student_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="Phone"
-            android:singleLine="true" />
+            android:hint="@string/phone"
+            android:singleLine="true"
+            android:inputType="phone"
+            android:autofillHints="@string/phone" />
 
         <EditText
             android:id="@+id/activity_form_student_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="Email"
-            android:singleLine="true" />
+            android:hint="@string/email"
+            android:singleLine="true"
+            android:inputType="textEmailAddress"
+            android:autofillHints="@string/email" />
 
     </LinearLayout>
 

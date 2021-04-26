@@ -1,19 +1,17 @@
 package com.rodolfobandeira.scheduler.ui.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.rodolfobandeira.scheduler.dao.StudentDAO;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.rodolfobandeira.scheduler.R;
+import com.rodolfobandeira.scheduler.dao.StudentDAO;
 import com.rodolfobandeira.scheduler.model.Student;
 
 import static com.rodolfobandeira.scheduler.ui.activity.ActivitiesConstants.APPBAR_TITLE;

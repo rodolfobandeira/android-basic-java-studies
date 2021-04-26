@@ -23,7 +23,7 @@ public class Student implements Serializable {
     @NonNull
     @Override
     public String toString() {
-        return name;
+        return name + " - " + phone;
     }
 
     public void setName(String name) {
