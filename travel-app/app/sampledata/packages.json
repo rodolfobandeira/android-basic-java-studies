@@ -1,0 +1,28 @@
+{
+  "packages": [
+    {
+      "image": "@drawable/sao_paulo_sp",
+      "days": "2 dias",
+      "price": "R$ 243,99",
+      "city": "Sao Paulo"
+    },
+    {
+      "image": "@drawable/belo_horizonte_bh",
+      "days": "2 dias",
+      "price": "R$ 421,99",
+      "city": "Belo Horizonte"
+    },
+    {
+      "image": "@drawable/recife_pe",
+      "days": "3 dias",
+      "price": "R$ 754,99",
+      "city": "Recife"
+    },
+    {
+      "image": "@drawable/rio_de_janeiro_rj",
+      "days": "4 dias",
+      "price": "R$ 987,99",
+      "city": "Rio de Janeiro"
+    }
+  ]
+}
