@@ -9,14 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TravelApp">
-        <activity android:name=".ui.activity.PackageDetailsActivity"></activity>
         <activity android:name=".ui.activity.PackagesListActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activity.PurchaseSummaryActivity" />
+        <activity android:name=".ui.activity.PaymentActivity" />
+        <activity android:name=".ui.activity.PackageDetailsActivity" />
     </application>
 
 </manifest>

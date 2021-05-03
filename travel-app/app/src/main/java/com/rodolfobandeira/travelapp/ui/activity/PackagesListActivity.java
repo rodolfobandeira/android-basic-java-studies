@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.rodolfobandeira.travelapp.R;
@@ -20,13 +21,30 @@ public class PackagesListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_packages_list);
+        setupPackageList();
+    }
+
+    private void setupPackageList() {
         ListView packagesList = findViewById(R.id.packages_listview);
-
-        List<TravelPackage> packages = new TravelPackageDAO().list();
-
+        final List<TravelPackage> packages = new TravelPackageDAO().list();
         packagesList.setAdapter(new PackagesListAdapter(packages, this));
 
-        Intent intent = new Intent(this, PackageDetailsActivity.class);
-        startActivity(intent);
+        /* Here is where we define the listener that will perform an action if a specific
+        item is touched (or clicked)
+         */
+        packagesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                /* The following line, will call the package details activity view.
+                * Intent parameters are "Activity FROM", "Activity TO (Destination)"
+                * */
+                Intent intent = new Intent(PackagesListActivity.this, PackageDetailsActivity.class);
+
+                TravelPackage selectedPackage = packages.get(position);
+                intent.putExtra("selectedPackage", selectedPackage);
+
+                startActivity(intent);
+            }
+        });
     }
 }

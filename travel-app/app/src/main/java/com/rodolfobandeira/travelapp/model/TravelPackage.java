@@ -1,8 +1,16 @@
 package com.rodolfobandeira.travelapp.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class TravelPackage {
+
+public class TravelPackage implements Serializable {
+/*
+When we pass "implements Serializable" we can pass objects through intents when
+we need to pass information between actitivies.
+
+Using "Parcelable" is modern and has a better performance.
+*/
 
     private final String city;
     private final String image;
