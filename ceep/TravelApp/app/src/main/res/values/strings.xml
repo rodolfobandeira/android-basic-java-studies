@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TravelApp</string>
+    <string name="special">Special</string>
+    <string name="special_subtext">Brazil</string>
+    <string name="sp">SP</string>
+    <string name="sao_paulo">Sao Paulo</string>
+    <string name="_2_dias">2 dias</string>
+    <string name="topo_header">Topo Header</string>
+</resources>
