@@ -27,8 +27,8 @@ public class NoteDAO {
         notes.remove(position);
     }
 
-    public void swap(int posicaoInicio, int posicaoFim) {
-        Collections.swap(notes, posicaoInicio, posicaoFim);
+    public void swapPosition(int startPosition, int finalPosition) {
+        Collections.swap(notes, startPosition, finalPosition);
     }
 
     public void removeAll() {
