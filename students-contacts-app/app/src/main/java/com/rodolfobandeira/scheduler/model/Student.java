@@ -1,33 +1,63 @@
 package com.rodolfobandeira.scheduler.model;
 
 import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.UUID;
 
+@Entity
 public class Student implements Serializable {
-    private String name;
+    @PrimaryKey(autoGenerate = true)
+    private int id = 0;
+    private String firstName;
+    private String lastName;
     private String phone;
     private String email;
-    private int id;
-
-    public Student(String name, String phone, String email) {
-        this.name = name;
-        this.phone = phone;
-        this.email = email;
-    }
-
-    public Student() {
-
-    }
+    private String nickname;
+    private Calendar createdAt = Calendar.getInstance();
+    private String uuid = UUID.randomUUID().toString();
 
     @NonNull
     @Override
     public String toString() {
-        return name + " - " + phone;
+        return firstName + " " + lastName + " - " + phone;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Calendar getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Calendar createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public void setPhone(String phone) {
@@ -36,10 +66,6 @@ public class Student implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public String getPhone() {
@@ -58,7 +84,24 @@ public class Student implements Serializable {
         return id;
     }
 
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
     public boolean hasValidId() {
         return id > 0;
+    }
+
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
+    public String formattedDate() {
+        SimpleDateFormat dateFormatted = new SimpleDateFormat("yyyy-MM-dd");
+        return dateFormatted.format(createdAt.getTime());
     }
 }

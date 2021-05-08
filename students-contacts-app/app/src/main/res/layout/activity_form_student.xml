@@ -10,11 +10,21 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/activity_form_student_name"
+            android:id="@+id/activity_form_student_first_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="@string/name"
+            android:hint="@string/first_name"
+            android:singleLine="true"
+            android:inputType="textCapWords"
+            android:autofillHints="@string/name" />
+
+        <EditText
+            android:id="@+id/activity_form_student_last_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="@string/last_name"
             android:singleLine="true"
             android:inputType="textCapWords"
             android:autofillHints="@string/name" />
@@ -38,6 +48,16 @@
             android:singleLine="true"
             android:inputType="textEmailAddress"
             android:autofillHints="@string/email" />
+
+        <EditText
+            android:id="@+id/activity_form_student_nickname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="@string/nickname"
+            android:singleLine="true"
+            android:inputType="textCapWords"
+            android:autofillHints="@string/name" />
 
     </LinearLayout>
 

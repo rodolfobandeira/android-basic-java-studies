@@ -21,13 +21,14 @@ import static com.rodolfobandeira.scheduler.ui.activity.ActivitiesConstants.STUD
 public class StudentListActivity extends AppCompatActivity {
 
     public static final String APPBAR_TITLE = "Students List";
-    private final StudentsListView studentsListView = new StudentsListView(this);
+    private StudentsListView studentsListView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_list);
         setTitle(APPBAR_TITLE);
+        studentsListView = new StudentsListView(this);
         setupNewStudentFloatingButton();
         setupStudentList();
     }

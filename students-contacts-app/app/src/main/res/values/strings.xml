@@ -6,4 +6,7 @@
     <string name="save">Save</string>
     <string name="remove">Remove</string>
     <string name="add_new_entry">Add new entry</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="nickname">Nickname</string>
 </resources>

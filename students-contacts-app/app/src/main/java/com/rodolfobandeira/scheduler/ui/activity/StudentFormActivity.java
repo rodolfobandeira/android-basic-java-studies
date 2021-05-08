@@ -11,7 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.rodolfobandeira.scheduler.R;
-import com.rodolfobandeira.scheduler.dao.StudentDAO;
+import com.rodolfobandeira.scheduler.asynctask.SaveStudentTask;
+import com.rodolfobandeira.scheduler.database.AppDatabase;
+import com.rodolfobandeira.scheduler.database.dao.StudentDAO;
 import com.rodolfobandeira.scheduler.model.Student;
 
 import static com.rodolfobandeira.scheduler.ui.activity.ActivitiesConstants.APPBAR_TITLE;
@@ -19,16 +21,22 @@ import static com.rodolfobandeira.scheduler.ui.activity.ActivitiesConstants.APPB
 import static com.rodolfobandeira.scheduler.ui.activity.ActivitiesConstants.STUDENT_KEY;
 
 public class StudentFormActivity extends AppCompatActivity {
-    private EditText nameField;
+    private EditText firstNameField;
+    private EditText lastNameField;
     private EditText phoneField;
     private EditText emailField;
-    private final StudentDAO dao = new StudentDAO();
+    private EditText nicknameField;
+    private StudentDAO dao;
     private Student student;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_student);
+
+        AppDatabase database = AppDatabase.getInstance(this);
+        dao = database.getRoomStudentDAO();
+
         initializeFields();
         loadStudent();
     }
@@ -62,46 +70,44 @@ public class StudentFormActivity extends AppCompatActivity {
     }
 
     private void populateFields() {
-        nameField.setText(student.getName());
+        firstNameField.setText(student.getFirstName());
+        lastNameField.setText(student.getLastName());
         phoneField.setText(student.getPhone());
         emailField.setText(student.getEmail());
+        nicknameField.setText(student.getNickname());
     }
 
     private void finalizeSaveAction() {
         populateStudentFields();
         if (student.hasValidId()) {
+            // This is still synchronously to compare the differences
             dao.edit(student);
         } else {
-            dao.save(student);
+            // This performs async
+            new SaveStudentTask(dao, student, this::finish).execute();
         }
         finish();
     }
 
     private void initializeFields() {
-        nameField = findViewById(R.id.activity_form_student_name);
+        firstNameField = findViewById(R.id.activity_form_student_first_name);
+        lastNameField = findViewById(R.id.activity_form_student_last_name);
         phoneField = findViewById(R.id.activity_form_student_phone);
         emailField = findViewById(R.id.activity_form_student_email);
-    }
-
-    private void save(Student student) {
-        dao.save(student);
-
-        Toast.makeText(
-                StudentFormActivity.this,
-                "Saved",
-                Toast.LENGTH_SHORT
-        ).show();
-
-        finish();
+        nicknameField = findViewById(R.id.activity_form_student_nickname);
     }
 
     private void populateStudentFields() {
-        String name = nameField.getText().toString();
+        String firstName = firstNameField.getText().toString();
+        String lastName = lastNameField.getText().toString();
         String phone = phoneField.getText().toString();
         String email = emailField.getText().toString();
+        String nickname = nicknameField.getText().toString();
 
-        student.setName(name);
+        student.setFirstName(firstName);
+        student.setLastName(lastName);
         student.setPhone(phone);
         student.setEmail(email);
+        student.setNickname(nickname);
     }
 }
